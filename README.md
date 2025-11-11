@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="screenshots/mfa_banner.png" alt="Azure AD / Entra ID — MFA Enforcement Lab Banner" width="100%">
+</p>
+
 # 🔐 Azure AD / Entra ID — MFA Enforcement Lab
 
 **Objective:** Configure and enforce Multi-Factor Authentication (MFA) in Microsoft Entra ID using authentication method policies, targeted enforcement groups, and a registration campaign. This lab demonstrates real-world IAM administration practices essential for enterprise identity security.
