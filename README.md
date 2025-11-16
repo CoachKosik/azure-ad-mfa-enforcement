@@ -1,211 +1,302 @@
+# Zero Trust Conditional Access Enforcement Lab (Entra ID / Azure AD)
+
 <p align="center">
   <img src="screenshots/mfa_banner.png" 
        alt="Azure AD / Entra ID — MFA Enforcement Lab Banner" width="100%">
 </p>
 
-# 🔐 Project 2 — Microsoft Entra ID  
-## Multi-Factor Authentication (MFA) Enforcement Lab
+# Hands-on Zero Trust enforcement using Microsoft Entra ID Conditional Access<br>
+## End-to-end identity protection lab replicating real IAM Engineer workflows.
 
-![Entra ID](https://img.shields.io/badge/Microsoft_Entra_ID-IAM-blue?style=flat-square)
-![MFA](https://img.shields.io/badge/Authentication-MFA_Enforcement-blue?style=flat-square)
-![Security](https://img.shields.io/badge/Identity_Security-Zero_Trust-blue?style=flat-square)
-![Governance](https://img.shields.io/badge/Access_Governance-Method_Policies-blue?style=flat-square)
-
----
-
-<details open>
-  <summary><h2>📘 Executive Summary</h2></summary>
-
-This project demonstrates how to **secure user identities in Microsoft Entra ID through Multi-Factor Authentication (MFA)** using:
-
-✅ Authentication Method Policies  
-✅ Group-based MFA enforcement  
-✅ Registration Campaigns  
-✅ User sign-in and MFA registration flow  
-
-This is a core identity security function in modern enterprises and represents real responsibilities of IAM Analysts, Identity Engineers, and Access Governance specialists.
-
-By targeting MFA to a specific group (`GG-MFA-Enforced`), this lab models a **controlled, least-privilege, zero-trust aligned rollout**, mirroring how organizations implement MFA in production.
-
-</details>
+<p>
+  <img src="https://img.shields.io/badge/Identity%20&%20Access%20Management-Zero%20Trust-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Microsoft-Entra%20ID%20(Azure%20AD)-0078D4?style=for-the-badge&logo=microsoft">
+  <img src="https://img.shields.io/badge/Framework-NIST%20800--207%20Zero%20Trust-orange?style=for-the-badge">
+</p>
 
 ---
 
-<details open>
-  <summary><h2 id="overview">🎯 Objective</h2></summary>
-
-Implement and enforce Microsoft Authenticator as the required MFA method for a targeted user group while documenting:
-
-- Authentication method policies  
-- Group-scoped MFA enforcement  
-- Registration campaign behavior  
-- Real user experience during MFA onboarding  
-
-All configurations and user flows are captured with screenshots for auditability.
-
-</details>
-
----
-
-<details open>
-  <summary><h2 id="skills">✅ Skills Demonstrated</h2></summary>
-
-- Identity & Access Management (IAM)  
-- Microsoft Entra ID Administration  
-- Authentication Method Policies  
-- Multi-Factor Authentication Enforcement  
-- Registration Campaign Deployment  
-- User Sign-In & Security Info Setup  
-- Access Governance & Least Privilege  
-- Zero-Trust Authentication Principles  
-
-</details>
+## 📌 Table of Contents
+- [Overview](#overview)
+- [Lab Objectives](#lab-objectives)
+- [Zero Trust Controls Implemented](#zero-trust-controls-implemented)
+- [Architecture](#architecture)
+- [Identity Groups](#identity-groups)
+- [Named Locations](#named-locations)
+- [Conditional Access Policies](#conditional-access-policies)
+  - [Require MFA for All Users](#01--require-mfa-for-all-users)
+  - [Block Non-US Locations](#02--block-non-us-countries)
+  - [Block Legacy Authentication](#03--block-legacy-authentication)
+- [Audit Verification Screenshots](#audit-verification-screenshots)
+  - [Policy Enforcement Sign-ins](#policy-enforcement-sign-ins)
+- [How to Deploy This Lab](#how-to-deploy-this-lab)
+- [Professional Summary for Resume](#professional-summary-for-resume)
 
 ---
 
-<details open>
-  <summary><h2 id="policy">🔑 1. Authentication Method Policy Configuration</h2></summary>
+## Overview
+This lab demonstrates Zero Trust access control enforcement using Microsoft Entra ID Conditional Access.
 
-### ✅ Microsoft Authenticator enabled  
-Only members of **GG-MFA-Enforced** can register or use the Authenticator app.
+It applies real enterprise IAM requirements:
 
-**Evidence:**  
-![Authentication Methods Policy](screenshots/auth-methods-policy.png)
-
-</details>
-
----
-
-<details open>
-  <summary><h2 id="targeted">🎯 2. Targeted MFA Enforcement (Group-Scoped)</h2></summary>
-
-### ✅ Enforcement applied to the security group  
-`GG-MFA-Enforced` is configured as a **required MFA group**, ensuring:
-
-- Controlled rollout  
-- Safe testing window  
-- RBAC-aligned enforcement  
-- No accidental enforcement on global admins  
-
-**Evidence:**  
-![Authenticator Enabled for Group](screenshots/mfa-authenticator-enabled.png)
-
-</details>
+✔ Require MFA globally  
+✔ Block legacy authentication  
+✔ Geolocation enforcement  
+✔ Exclusion of break-glass and admin accounts  
+✔ Full audit evidence of successful policy behavior
 
 ---
 
-<details open>
-  <summary><h2 id="campaign">📣 3. Registration Campaign Setup</h2></summary>
-
-### ✅ Registration Campaign Configured  
-- Target: `GG-MFA-Enforced`  
-- Prompts users to register strong authentication  
-- Required on next sign-in  
-
-**Evidence:**  
-![Registration Policy](screenshots/mfa-registration-policy.png)
-
-</details>
+## Lab Objectives
+- Implement Zero Trust identity enforcement
+- Configure Microsoft Conditional Access at enterprise standard
+- Validate enforcement with live sign-in policy evidence
+- Capture documentation suitable for **IAM portfolio & recruiter review**
 
 ---
 
-<details open>
-  <summary><h2 id="signin">🔐 4. User Sign-In: “More Information Required”</h2></summary>
-
-When the test user signs in, Entra ID blocks access until MFA setup is completed.
-
-**Evidence:**  
-![More Information Required](screenshots/mfa-more-information-required.png)
-
-</details>
+## Zero Trust Controls Implemented
+| Control | Framework Alignment |
+|---------|---------------------|
+| Require MFA | NIST 800-63-3 |
+| Block Legacy Auth | MITRE ATT&CK T1110 Defense Evasion |
+| Trusted Country Login | Zero Trust Identity Pillar |
+| Emergency Access Accounts | Microsoft CA Governance Best Practice |
 
 ---
 
-<details open>
-  <summary><h2 id="registration">📱 5. Microsoft Authenticator Registration Flow</h2></summary>
-
-User is guided through downloading Microsoft Authenticator and scanning the QR code.
-
-**Evidence:**  
-![Authenticator Registration Prompt](screenshots/mfa-authentication-prompt.png)
-
-</details>
-
----
-
-<details open>
-  <summary><h2 id="success">✅ 6. MFA Registration Success</h2></summary>
-
-After completing setup, MFA becomes mandatory for all future sign-ins.
-
-**Evidence:**  
-![MFA Registration Success](screenshots/mfa-registration-success.png)
-
-</details>
+## Architecture
+```
+Tenant
+│
+├── Identity Groups
+│   ├── GG-ZT-Admins
+│   ├── GG-ZT-BreakGlass
+│   └── GG-ZT-AllUsers
+│
+├── Named Location
+│   └── United States (Country IP-based)
+│
+└── Conditional Access Policies
+    ├── 01 – Require MFA for All Users
+    ├── 02 – Block Non-US Countries
+    └── 03 – Block Legacy Authentication
+```
 
 ---
+
+## Identity Groups
 
 <details>
-  <summary><h2 id="governance">🔐 Access Governance & Security Rationale</h2></summary>
+<summary><b>GG-ZT-Admins</b></summary>
 
-### ✅ Why MFA Enforcement Matters  
-MFA is the single strongest defense against:
+Description: High-security admin baseline  
+Members shown below:
 
-- Password spray  
-- Phishing  
-- Credential stuffing  
-- Brute-force attempts  
-- Compromised password reuse  
+```
+Jax Orion
+Justin Kosik
+Sierra Nova
+```
 
-It reduces account compromise risk by **over 99%** (Microsoft reporting).
+📸 **Screenshots**
 
----
-
-### ✅ Why Use a Targeted Group (`GG-MFA-Enforced`)  
-- Safest way to roll out MFA  
-- Allows phased testing  
-- Prevents accidental lockout of admins  
-- Supports identity governance at scale  
-
----
-
-### ✅ Why Microsoft Authenticator?  
-- Strongest built-in MFA method  
-- Push notifications  
-- Resistant to SIM-swap/SMS-interception  
-- Compatible with advanced features:
-  - Passwordless  
-  - Number matching  
-  - Phish-resistant MFA  
+- ![Admin Groups Created](screenshots/zt-group-admins-created.png)
+- screenshots/zt-group-admins-members.png
 
 </details>
-
----
 
 <details>
-  <summary><h2 id="learned">📘 What I Learned</h2></summary>
+<summary><b>GG-ZT-BreakGlass</b></summary>
 
-- How to enforce MFA inside Entra ID  
-- How to configure Authentication Method Policies  
-- How to launch a Registration Campaign  
-- How Entra ID guides the user during MFA onboarding  
-- Why MFA is essential for Zero-Trust identity strategy  
-- How to document IAM steps for audit and governance  
+Description: Emergency exclusion account  
+Members:
+
+```
+BreakGlass Emergency Admin
+```
+
+📸 Screenshots  
+- screenshots/zt-group-breakglass-created.png  
+- screenshots/zt-group-breakglass-members.png  
+
+</details>
+
+<details>
+<summary><b>GG-ZT-AllUsers</b></summary>
+
+Description: Default enforcement target group  
+Members:
+
+```
+Dawsyn Echo
+Eddie Spark
+Jax Orion
+Justin Kosik
+Leah Vanta
+Maverick Blaze
+Nathan Dash
+Sierra Nova
+```
+
+📸 Screenshots  
+- screenshots/zt-group-allusers-created.png  
+- screenshots/zt-group-allusers-members.png  
 
 </details>
 
 ---
 
-<details>
-  <summary><h2 id="nextsteps">📋 Next Steps (Future IAM Projects)</h2></summary>
+## Named Locations
 
-✅ Project 1 — Identity Basics (Users, Groups, RBAC)  
-✅ Project 2 — **MFA Enforcement** (this project)  
-✅ Project 3 — Joiner → Mover → Leaver lifecycle  
-🔜 Conditional Access Policies  
-🔜 Passwordless Authentication  
-🔜 Privileged Identity Management (PIM)  
-🔜 Secure Tier-0 Admin Identities  
+<details>
+<summary><b>United States (Trusted Country)</b></summary>
+
+✔ Country-based named location  
+✔ Used for explicit "Include/Exclude" enforcement
+
+📸 Screenshot  
+- screenshots/named-location-united-states.png
 
 </details>
+
+---
+
+## Conditional Access Policies
+
+---
+
+### 01 – Require MFA for All Users
+<details>
+<summary><b>Policy Configuration Details</b></summary>
+
+**Assignments**
+- Users: All users (BreakGlass + Admin groups excluded)
+
+**Grant Controls**
+- Require MFA
+
+📸 Screenshots  
+```
+screenshots/CA-Policy01-Assignments.png
+screenshots/CA-Policy01-Conditions.png
+screenshots/CA-Policy01-Grant.png
+screenshots/CA-Policy01-Overview.png
+```
+</details>
+
+---
+
+### 02 – Block Non-US Countries
+<details>
+<summary><b>Policy Configuration Details</b></summary>
+
+**Assignments**
+- Users: All users (BreakGlass + Admins excluded)
+
+**Conditions**
+- Locations → Exclude ➜ United States
+
+**Grant**
+- Block access
+
+📸 Screenshots  
+```
+screenshots/CA-Policy02-Assignments.png
+screenshots/CA-Policy02-Conditions-Locations.png
+screenshots/CA-Policy02-Overview.png
+```
+
+</details>
+
+---
+
+### 03 – Block Legacy Authentication
+<details>
+<summary><b>Policy Configuration Details</b></summary>
+
+**Conditions**
+- Client Apps → Legacy Auth Clients only
+
+**Grant**
+- Block access
+
+📸 Screenshots  
+```
+screenshots/CA-Policy03-Assignments.png
+screenshots/CA-Policy03-Conditions-ClientApps.png
+screenshots/CA-Policy03-Grant.png
+screenshots/CA-Policy03-Overview.png
+```
+
+</details>
+
+---
+
+## Audit Verification Screenshots
+<details>
+<summary><b>Non-US Login Test (Blocked) ✔</b></summary>
+
+```
+screenshots/05A-NonUS-Blocked-CAEvent.png
+screenshots/05B-NonUS-Blocked-ErrorScreen.png
+```
+</details>
+
+<details>
+<summary><b>US Login Success Event ✔</b></summary>
+
+```
+screenshots/06A-USLogin-Success-CAEvent.png
+```
+</details>
+
+---
+
+## How to Deploy This Lab
+
+```
+1️⃣ Create three Azure AD security groups:
+     GG-ZT-Admins
+     GG-ZT-BreakGlass
+     GG-ZT-AllUsers
+
+2️⃣ Assign REAL user objects appropriately
+
+3️⃣ Create named location "United States (Countries – IP)"
+
+4️⃣ Build the three policies above in order:
+     01 – Require MFA for All Users
+     02 – Block Non-US Countries
+     03 – Block Legacy Authentication
+
+5️⃣ EXCLUDE:
+     ❗ BreakGlass group
+     ❗ Admin group
+
+6️⃣ Validate:
+     🔹 Sign-in logs
+     🔹 Conditional Access tab
+     🔹 Error screen evidence
+
+```
+
+---
+
+## Professional Summary for Resume
+
+```
+• Designed and deployed enterprise-grade Zero Trust Conditional Access controls in Microsoft Entra ID
+• Implemented global MFA enforcement with protected break-glass exclusion
+• Built geolocation access control denying all non-US authentication attempts
+• Eliminated legacy auth protocols to reduce credential attack surface
+• Produced complete compliance evidence with policy events and sign-in artifacts
+• Repository structured to match IAM engineer portfolio expectations
+```
+
+---
+
+## ⭐ Recruiter-Facing Statement
+
+> **This project demonstrates hands-on IAM engineering capability within modern Microsoft identity platforms, including real Conditional Access enforcement at Zero Trust standards. Evidence, policy state, and sign-in impact are fully captured for audit and operational review.**
 
