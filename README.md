@@ -27,7 +27,7 @@ This is **Project 2** in a 4-part enterprise IAM portfolio series.
 - [Objectives](#-objectives)
 - [Authentication Method Policies](#-authentication-method-policies)
 - [Group-Targeted MFA Enforcement](#-group-targeted-mfa-enforcement)
-- [Registration Campaign](#-registration-campaign)
+- [Registration Campaign](#-registration-campaign-required-enrollment)
 - [User Registration Experience](#-user-registration-experience)
 - [MFA Authentication Test](#-mfa-authentication-test)
 - [What I Learned](#-what-i-learned)
