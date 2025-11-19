@@ -137,7 +137,7 @@ This is **Project 2** in a 4-part enterprise IAM portfolio series.
 ## 📂 Repo Structure
 
 ```text
-azure-ad-mfa-enforcement/
+entra-id-mfa-enforcement/
 │ README.md
 └── screenshots/
     ├─ mfa_banner.png
