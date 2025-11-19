@@ -14,18 +14,25 @@
 
 ---
 
-## 📌 Overview
+## 🔵 Why This Project Matters to IAM Hiring Managers
 
-This project implements **Multi-Factor Authentication (MFA) enforcement** inside Microsoft Entra ID as required by modern Zero Trust security frameworks.
+MFA enforcement is one of the **highest-impact IAM controls**, and this project demonstrates that I can implement it the right way — using Conditional Access and modern Authentication Methods rather than outdated legacy settings.
 
-The lab simulates **real IAM analyst responsibilities**, including:
+What this proves I can do:
 
-✔ Designing secure authentication method policies  
-✔ Targeting enforcement via identity-scoped groups  
-✔ Blocking legacy insecure access paths  
-✔ Capturing **audit-ready evidence** for compliance teams & hiring managers
+- **Configure Authentication Methods policies** to enforce Microsoft Authenticator correctly  
+- Deploy and test a **Registration Campaign** for real users  
+- Implement **Conditional Access** for enforceable MFA requirements  
+- **Block legacy authentication protocols**, which are responsible for the majority of compromised accounts  
+- Validate policies through real **user sign-in testing**, ensuring enforcement actually works  
+- Provide **clear, audit-friendly documentation** for security reviews or compliance teams
 
-This is **Project 2** in a 4-part enterprise IAM portfolio series.
+These are core responsibilities for:
+
+- IAM Analysts  
+- Identity & Access Engineers  
+- Security Operations (SecOps) IAM roles  
+- Zero Trust / Authentication specialists
 
 ---
 
