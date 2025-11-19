@@ -27,7 +27,7 @@ What this proves I can do:
 - Validate policies through real **user sign-in testing**, ensuring enforcement actually works  
 - Provide **clear, audit-friendly documentation** for security reviews or compliance teams
 
-These are core responsibilities for:
+This aligns with the expectations for:
 
 - IAM Analysts  
 - Identity & Access Engineers  
