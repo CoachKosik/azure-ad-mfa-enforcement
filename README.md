@@ -130,14 +130,14 @@ This is **Project 2** in a 4-part enterprise IAM portfolio series.
 
 **Joiners ▸ Movers ▸ Leavers ▸ Full Access Proven**
 
-🔗 https://github.com/CoachKosik/Project-3-Entra-ID-Azure-AD-Identity-Lifecycle-JML
+🔗 [Project 3 — Microsoft Entra ID Identity Lifecycle (JML)](https://github.com/CoachKosik/Project-3-Microsoft-Entra-ID-Identity-Lifecycle-JML/blob/main/README.md)
 
 ---
 
 ## 📂 Repo Structure
 
 ```text
-entra-id-mfa-enforcement/
+azure-ad-mfa-enforcement/
 │ README.md
 └── screenshots/
     ├─ mfa_banner.png
